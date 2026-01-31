@@ -31,12 +31,16 @@ function ThemeToggle() {
   )
 }
 
-const navLinks = [
-  { to: '/page1' as const, label: 'Page 1' },
-  { to: '/page2' as const, label: 'Page 2' },
-]
+export interface NavLink {
+  to: string
+  label: string
+}
 
-export function Navbar() {
+interface NavbarProps {
+  links: NavLink[]
+}
+
+export function Navbar({ links }: NavbarProps) {
   return (
     <div className="navbar bg-base-200 shadow-sm">
       <div className="navbar-start">
@@ -49,7 +53,7 @@ export function Navbar() {
             tabIndex={0}
             className="menu dropdown-content menu-sm z-10 mt-3 w-52 rounded-box bg-base-200 p-2 shadow"
           >
-            {navLinks.map(link => (
+            {links.map(link => (
               <li key={link.to}>
                 <Link to={link.to} activeProps={{ className: 'menu-active' }}>
                   {link.label}
@@ -64,7 +68,7 @@ export function Navbar() {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          {navLinks.map(link => (
+          {links.map(link => (
             <li key={link.to}>
               <Link to={link.to} activeProps={{ className: 'menu-active' }}>
                 {link.label}
