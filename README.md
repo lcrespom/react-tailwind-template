@@ -14,6 +14,8 @@ themeable single-page applications.
 - **Vitest** + **React Testing Library** — unit and component testing
 - **Prettier** (with Tailwind plugin) + **ESLint** — formatting and linting
 
+The setup steps are described [here](setup-steps.md).
+
 ## Getting Started
 
 ### Install dependencies
