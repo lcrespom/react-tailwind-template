@@ -22,10 +22,10 @@ npm install
 npm install tailwindcss@latest @tailwindcss/vite@latest
 ```
 
-## 3. Install DaisyUI
+## 3. Install DaisyUI and Lucide icons
 
 ```bash
-npm install daisyui@latest
+npm install daisyui@latest lucide-react
 ```
 
 ## 4. Install TanStack Router and its Vite plugin

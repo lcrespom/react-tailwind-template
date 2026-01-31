@@ -7,6 +7,7 @@ I want you to create a new Web App project with the following technical stack:
 - Tailwind
 - Daisy UI
 - Pre-select Dark/Light color theme based on system's settings
+- Lucide for icons
 - A responsive nav bar, initially containing
   - The app title. Clicking it navigates to the root path /
   - Page 1: navigates to /page1
