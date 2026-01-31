@@ -1,7 +1,7 @@
 # Recur - Project Setup Steps
 
-This document describes all the steps followed to scaffold the Recur web
-application from scratch.
+This document describes all the steps followed to scaffold the Recur web application from
+scratch.
 
 ## Prerequisites
 
@@ -40,10 +40,10 @@ npm install @tanstack/react-router @tanstack/router-plugin
 npm install -D vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom
 ```
 
-## 6. Install Prettier
+## 6. Install Prettier and the TailWind Prettier plugin
 
 ```bash
-npm install -D prettier
+npm install -D prettier prettier-plugin-tailwindcss
 ```
 
 ## 7. Configure Vite (`vite.config.ts`)
@@ -78,8 +78,7 @@ export default defineConfig({
 **Key points:**
 
 - `@tanstack/router-plugin` must come **before** `@vitejs/plugin-react`
-- Import `defineConfig` from `vitest/config` (not `vite`) to support the
-  `test` property
+- Import `defineConfig` from `vitest/config` (not `vite`) to support the `test` property
 - `autoCodeSplitting: true` enables automatic code splitting per route
 
 ## 8. Configure Tailwind CSS and DaisyUI (`src/index.css`)
@@ -88,13 +87,15 @@ Replace the contents of `src/index.css` with:
 
 ```css
 @import 'tailwindcss';
-@plugin "daisyui" {
-  themes: light --default, dark --prefersdark;
+@plugin 'daisyui' {
+  themes:
+    light --default,
+    dark --prefersdark;
 }
 ```
 
-This sets `light` as the default theme, and `dark` is automatically applied
-when the user's system prefers dark mode.
+This sets `light` as the default theme, and `dark` is automatically applied when the
+user's system prefers dark mode.
 
 ## 9. Update TypeScript configuration (`tsconfig.app.json`)
 
@@ -157,6 +158,7 @@ The `matchMedia` mock is required because jsdom does not implement it.
   "arrowParens": "avoid",
   "trailingComma": "es5",
   "printWidth": 90,
+  "plugins": ["prettier-plugin-tailwindcss"],
   "overrides": [
     {
       "files": "*.md",
@@ -184,8 +186,8 @@ Generate the route tree:
 npx @tanstack/router-cli generate
 ```
 
-This creates `src/routeTree.gen.ts` which is auto-generated and should not
-be manually edited.
+This creates `src/routeTree.gen.ts` which is auto-generated and should not be manually
+edited.
 
 ## 14. Set up the router in `src/main.tsx`
 
