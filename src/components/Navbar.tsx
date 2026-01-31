@@ -1,4 +1,4 @@
-import { Link, useRouterState } from '@tanstack/react-router'
+import { Link } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import { Sun, Moon, Menu } from 'lucide-react'
 
@@ -37,9 +37,6 @@ const navLinks = [
 ]
 
 export function Navbar() {
-  const routerState = useRouterState()
-  const currentPath = routerState.location.pathname
-
   return (
     <div className="navbar bg-base-200 shadow-sm">
       <div className="navbar-start">
@@ -54,7 +51,7 @@ export function Navbar() {
           >
             {navLinks.map(link => (
               <li key={link.to}>
-                <Link to={link.to} className={currentPath === link.to ? 'active' : ''}>
+                <Link to={link.to} activeProps={{ className: 'menu-active' }}>
                   {link.label}
                 </Link>
               </li>
@@ -69,7 +66,7 @@ export function Navbar() {
         <ul className="menu menu-horizontal px-1">
           {navLinks.map(link => (
             <li key={link.to}>
-              <Link to={link.to} className={currentPath === link.to ? 'active' : ''}>
+              <Link to={link.to} activeProps={{ className: 'menu-active' }}>
                 {link.label}
               </Link>
             </li>
