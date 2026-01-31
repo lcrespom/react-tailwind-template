@@ -7,13 +7,18 @@ import {
   RouterProvider,
   Outlet,
 } from '@tanstack/react-router'
-import { Navbar } from './Navbar'
+import { Navbar, type NavLink } from './Navbar'
+
+const navLinks: NavLink[] = [
+  { to: '/page1', label: 'Page 1' },
+  { to: '/page2', label: 'Page 2' },
+]
 
 function renderWithRouter(initialPath = '/') {
   const rootRoute = createRootRoute({
     component: () => (
       <>
-        <Navbar />
+        <Navbar links={navLinks} />
         <Outlet />
       </>
     ),
@@ -48,12 +53,12 @@ function renderWithRouter(initialPath = '/') {
 describe('Navbar', () => {
   it('renders the app title', async () => {
     renderWithRouter()
-    expect(await screen.findByText('Recur')).toBeInTheDocument()
+    expect(await screen.findByText('MyApp')).toBeInTheDocument()
   })
 
   it('renders navigation links for Page 1 and Page 2', async () => {
     renderWithRouter()
-    await screen.findByText('Recur')
+    await screen.findByText('MyApp')
     await waitFor(() => {
       const page1Links = screen.getAllByText('Page 1')
       const page2Links = screen.getAllByText('Page 2')
@@ -69,7 +74,7 @@ describe('Navbar', () => {
 
   it('app title links to root path', async () => {
     renderWithRouter()
-    const titleLink = await screen.findByText('Recur')
+    const titleLink = await screen.findByText('MyApp')
     expect(titleLink.closest('a')).toHaveAttribute('href', '/')
   })
 })

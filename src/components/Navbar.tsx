@@ -34,7 +34,7 @@ export function Navbar({ links }: NavbarProps) {
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost text-xl">
-          Recur
+          MyApp
         </Link>
       </div>
       {/*--------------- Desktop menu ---------------*/}

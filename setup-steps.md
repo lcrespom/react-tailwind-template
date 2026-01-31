@@ -1,7 +1,6 @@
-# Recur - Project Setup Steps
+# React TailWindCSS Template - Project Setup Steps
 
-This document describes all the steps followed to scaffold the Recur web application from
-scratch.
+This document describes all the steps followed to scaffold a web application from scratch.
 
 ## Prerequisites
 
@@ -11,8 +10,8 @@ scratch.
 ## 1. Scaffold the Vite + React + TypeScript project
 
 ```bash
-npm create vite@latest recur -- --template react-ts
-cd recur
+npm create vite@latest my-app -- --template react-ts
+cd my-app
 npm install
 ```
 
@@ -232,7 +231,7 @@ npm run format
 ## Project structure
 
 ```
-recur/
+my-app/
 ├── index.html
 ├── package.json
 ├── vite.config.ts
